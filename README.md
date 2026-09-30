@@ -25,6 +25,7 @@
 - **Agent 稳定性**：待批准弹窗不会因误点遮罩或 Esc 关闭，等待状态也可点击重新打开；侧栏关闭或后台中断后可从检查点恢复；对结果不明的提交、下载等操作先核验，避免重复执行。Skill 保存以真实回执为准；跨会话摘要记忆默认关闭，开启后才按相关性召回。
 - **模型与弹窗**：增加 Grok、MiniMax、Gemini、Ollama（本地），将 LM Studio 标为本地；更新模型候选与提供商密钥隔离。设置删除确认改为插件内置弹窗；统一快捷键按钮样式，修正英文人设与暗链设置卡片及规则长标题的显示。扩展说明与弹窗标语突出浏览器抓包分析及专业版 MCP/Agent。设置按开关展开/收起，扩展角标按当前站点抓包数更新。
 - **抓包、拦截与重放**：历史范围明确为“当前域名流量 / 当前标签页流量 / 全部抓包记录”，修正跨子域名的标签页筛选。重放台默认打开 Pretty，Pretty 和 Raw 中的修改都可重放；拦截队列自动刷新，改进 WebSocket 帧、批量重放及请求/响应体缺失诊断。Chrome 被动监听仍受浏览器可读取范围限制；Firefox 移除无效的对应开关。
+- **代理分流器**：首次开启且未填写上游代理时，直接展开配置并定位输入框；填写后保存即可自动启用，不再弹出“保存失败”。修正 Firefox SOCKS5 账号密码配置被错误拒绝的问题；已通过真实浏览器的本地认证代理验证。Chrome SOCKS 与 Firefox SOCKS4 仍不支持此认证方式。
 - **分析与界面**：改进 AI 分析、暗链检测的结果反馈，修正 PRO 标识遮挡和 macOS 深色模式文字对比度。
 - **MCP 与发行包**：本地 MCP Server 更新至 **1.0.13**，改善接入配置与启动诊断。Chrome / Firefox 正式 ZIP 内的扩展脚本已混淆；独立 `hawkeye-mcp-server.mjs` 保持可直接运行，便于排障。升级时替换扩展和 MJS，并重启 MCP Host。
 
@@ -249,8 +250,8 @@ Hx0 鹰眼当前采用 **社区版 / 专业版 / 首次 30 分钟试用专业版
 校验值（SHA-256）：
 
 ```text
-ed9aff9f0aee3acc9797f133f74f1a87175cfb32cedea1bccf2837292f1c4868  Hx0-HawkEye-Chrome-V1.0.6-Official.Release.zip
-9ddfc2b5ea0e0d1df67d437a6952f7e23165731c7a0fb57dd9228eaf9c25aff4  Hx0-HawkEye-Firefox-V1.0.6-Official.Release.zip
+7c961915fbb72aa0f7d6e73447ae95e9b7a9171cdd65ca8e3bbd25052559492c  Hx0-HawkEye-Chrome-V1.0.6-Official.Release.zip
+fa6c9fd4ee77acd8a75b9c799c71e89dc8d96a3302c608ce932ccfe592afddad  Hx0-HawkEye-Firefox-V1.0.6-Official.Release.zip
 ```
 
 本版**不发布 CRX / XPI**。Chrome 会限制或自动停用非商店来源的 CRX；Firefox 正式版要求签名 XPI。统一发布 ZIP 可以避免把不稳定的旁加载方式包装成“永久安装”，也便于核对包内只有正式运行文件。ZIP 不含未混淆的扩展开发源码、构建脚本、source map、密钥或调试文件；独立的 MCP Server MJS 保持可读，便于直接运行和排障。

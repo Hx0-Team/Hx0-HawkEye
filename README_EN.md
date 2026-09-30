@@ -19,6 +19,7 @@
 - **Agent reliability:** Pending approvals stay open when the backdrop or Escape is pressed; the waiting indicator can reopen an approval after dismissal. Recover from checkpoints after sidebar closure or background interruption. Verify uncertain submissions and downloads before retrying. Skill saves use actual receipts; cross-chat summary memory is off by default and retrieved by relevance only after opt-in.
 - **Models and popup:** Adds Grok, MiniMax, Gemini, and Ollama (local), labels LM Studio as local, updates model candidates, and isolates provider keys. Settings confirmations use extension dialogs; shortcut buttons, English persona fields, and dark-link settings remain scrollable in short popups and longer rule names display correctly in Chrome and Firefox. Extension and popup descriptions lead with browser traffic capture and analysis while identifying Pro MCP/Agent features. Popup sections follow their switches, and the toolbar badge tracks captured traffic for the active site.
 - **Capture, intercept, and replay:** History scopes now distinguish current domain, current tab, and all records, with cross-subdomain tab filtering fixed. Replay opens in Pretty by default and applies edits made in Pretty or Raw. Intercept queues refresh automatically; WebSocket frames, batch replay, and missing body diagnostics are improved. Chrome passive listening remains limited to bodies the browser exposes; Firefox no longer shows its ineffective counterpart.
+- **Smart Proxy Router:** On first enable without an upstream proxy, the popup opens the configuration and focuses the upstream field. Saving a completed profile then enables routing without a misleading failure dialog. Firefox SOCKS5 username/password profiles are no longer rejected and were verified in a real browser against a local authenticated proxy. Chrome SOCKS and Firefox SOCKS4 remain unsupported for this authentication method.
 - **Analysis and UI:** Improves AI analysis and dark-link feedback, unclipped PRO badges, and text contrast in macOS dark mode.
 - **MCP and packages:** Local MCP Server **1.0.13** improves setup and startup diagnostics. Official Chrome/Firefox ZIPs contain obfuscated extension scripts; the standalone `hawkeye-mcp-server.mjs` stays directly runnable for troubleshooting. Replace the extension and MJS, then restart the MCP host when upgrading.
 
@@ -254,8 +255,8 @@ Download exactly one official package for your browser from [GitHub Releases](ht
 Checksums (SHA-256):
 
 ```text
-ed9aff9f0aee3acc9797f133f74f1a87175cfb32cedea1bccf2837292f1c4868  Hx0-HawkEye-Chrome-V1.0.6-Official.Release.zip
-9ddfc2b5ea0e0d1df67d437a6952f7e23165731c7a0fb57dd9228eaf9c25aff4  Hx0-HawkEye-Firefox-V1.0.6-Official.Release.zip
+7c961915fbb72aa0f7d6e73447ae95e9b7a9171cdd65ca8e3bbd25052559492c  Hx0-HawkEye-Chrome-V1.0.6-Official.Release.zip
+fa6c9fd4ee77acd8a75b9c799c71e89dc8d96a3302c608ce932ccfe592afddad  Hx0-HawkEye-Firefox-V1.0.6-Official.Release.zip
 ```
 
 This release intentionally ships **no CRX or XPI**. Chrome restricts or disables non-store CRX installs, while release Firefox requires signed XPI packages. ZIP-only distribution avoids presenting fragile sideload paths as permanent installs and keeps the packaged runtime contents inspectable. The archives contain no unobfuscated extension development source, build scripts, source maps, secrets, or debug files; the standalone MCP Server MJS remains readable for direct use and troubleshooting.
