@@ -19,7 +19,7 @@
 
 ## v1.0.6 重点更新
 
-> **0920版本更新：** MCP Server 更新至 1.0.12，Chrome / Firefox 共用同一份 MJS，支持双浏览器连接待命；改善工具 schema 兼容与分页，保留 51 个工具，修复端口占用不退出、stdio 结束后残留进程、Firefox 导航取消信号错位及原生输入回执问题。browser_read_text 正文与结构化 value 同步返回，缺失正文显式报错；点击、输入、选择、按键和等待默认返回精简回执，保留状态变化与输入证据，include_elements 可按需附带页面详情；evaluate 默认省略控制台日志（include_logs 可开启），导航默认提供带 ref 的精简预览（include_snapshot 可获取完整观察），大结果使用 next_page_token 续读。修复 SPA 换页 ref 复用、标题误判及查找上下文重复。代理分流修复默认端口校验、无效地址误应用和浏览器代理读取，Firefox 改用原生请求分流；Chrome 未命中规则直连，Firefox 保留浏览器默认路径。页面脚本修复刷新漏注入、保存失败仍执行旧代码、重复注入、禁用脚本被执行及目标偏移，串行化注册并校验保存回执。Agent 截断决策修复请求增加输出预算、关闭该次思考，持续耗尽时明确提示暂停和恢复方式。升级请替换扩展并重新加载，同时替换 MJS、重启 MCP 服务。
+> **0930版本更新：** Agent 对话现可管理抓包、拦截与放包、代理、页面脚本、MCP、人设、Skills、抓包历史及基础/高级设置，包括目标域名、抓包类型、内网/自签名 HTTPS、敏感与暗链规则、语言和 AI 配置；持续开关与临时任务的作用范围已明确。Agent 增加检查点恢复、结果不明操作的核验和 Skill 保存回执，跨会话摘要记忆默认关闭。新增 Grok、MiniMax、Gemini、Ollama（本地）及 LM Studio（本地）配置，更新模型候选和密钥隔离；优化弹窗展开、按钮样式、历史范围与按当前标签页流量同步的扩展角标。重放台默认使用 Pretty，Pretty 与 Raw 中的修改均可重放，并修正当前标签页筛选；拦截列表自动刷新，改进请求/响应体缺失提示与浏览器差异说明，移除 Firefox 无效的被动监听开关。改进 WebSocket 抓包/拦截、批量重放、AI 分析和暗链检测，修正 PRO 标识遮挡及 macOS 深色模式文字对比度。本地 MCP Server 升级至 1.0.13，完善安装配置与连接诊断。正式 Chrome / Firefox ZIP 只含混淆后的扩展脚本及运行文件；独立 MCP MJS 保持可直接运行，便于排障。升级时替换扩展与 MJS，并重启 MCP Host。
 
 > **0906版本更新：** 本次重点优化 Agent 长任务执行与稳定性：修复切换标签页后仍操作旧页、关闭任务页面异常退出、文件发现误触发下载和检查点超限阻断新任务；完善目标/计划进度保留、中断恢复与防重复提交，优化历史同步，并将标题与记忆整理移至后台；增强联网搜索、页面数值证据与 Firefox 输入可靠性，新增 Ctrl+H 抓包界面快捷键，同时同步中英文用户手册与 Chrome/Firefox 发行包。
 
@@ -224,7 +224,14 @@ Hx0 鹰眼当前采用 **社区版 / 专业版 / 首次 30 分钟试用专业版
 - `Hx0-HawkEye-Chrome-V1.0.6-Official.Release.zip`
 - `Hx0-HawkEye-Firefox-V1.0.6-Official.Release.zip`
 
-本版**不发布 CRX / XPI**。Chrome 会限制或自动停用非商店来源的 CRX；Firefox 正式版要求签名 XPI。统一发布 ZIP 可以避免把不稳定的旁加载方式包装成“永久安装”，也便于核对包内只有正式运行文件。ZIP 中不含源码、构建脚本、source map、密钥或调试文件。
+校验值（SHA-256）：
+
+```text
+89bda954bff9ddaf5b97ce82c6eea0bb57ee712996bb909543f227bf65cb4cfb  Hx0-HawkEye-Chrome-V1.0.6-Official.Release.zip
+cd292f1c9f83a277bd4d9c952e720de3acb001bd06fd765535f5fc0cb75aa9b5  Hx0-HawkEye-Firefox-V1.0.6-Official.Release.zip
+```
+
+本版**不发布 CRX / XPI**。Chrome 会限制或自动停用非商店来源的 CRX；Firefox 正式版要求签名 XPI。统一发布 ZIP 可以避免把不稳定的旁加载方式包装成“永久安装”，也便于核对包内只有正式运行文件。ZIP 不含未混淆的扩展开发源码、构建脚本、source map、密钥或调试文件；独立的 MCP Server MJS 保持可读，便于直接运行和排障。
 
 ### Chrome / Edge / Chromium
 
