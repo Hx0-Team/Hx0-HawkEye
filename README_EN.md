@@ -17,7 +17,7 @@
 
 - **Agent chat control:** Manage capture, interception and release, SOCKS/HTTP proxy routing, page scripts, MCP, personas, Skills, history, and basic/advanced settings through chat. Settings include target hosts, capture types/suffixes, private/self-signed HTTPS bodies, sensitive-data and dark-link rules, language, and AI profiles. Persistent switches and temporary tasks have defined scopes.
 - **Agent reliability:** Pending approvals stay open when the backdrop or Escape is pressed; the waiting indicator can reopen an approval after dismissal. Recover from checkpoints after sidebar closure or background interruption. Verify uncertain submissions and downloads before retrying. Skill saves use actual receipts; cross-chat summary memory is off by default and retrieved by relevance only after opt-in.
-- **Models and popup:** Adds Grok, MiniMax, Gemini, and Ollama (local), labels LM Studio as local, updates model candidates, and isolates provider keys. Settings confirmations use extension dialogs; shortcut buttons, English persona fields, and longer dark-link rule names now display correctly in Chrome and Firefox. Popup sections follow their switches, and the toolbar badge tracks captured traffic for the active site.
+- **Models and popup:** Adds Grok, MiniMax, Gemini, and Ollama (local), labels LM Studio as local, updates model candidates, and isolates provider keys. Settings confirmations use extension dialogs; shortcut buttons, English persona fields, and dark-link settings remain scrollable in short popups and longer rule names display correctly in Chrome and Firefox. Popup sections follow their switches, and the toolbar badge tracks captured traffic for the active site.
 - **Capture, intercept, and replay:** History scopes now distinguish current domain, current tab, and all records, with cross-subdomain tab filtering fixed. Replay opens in Pretty by default and applies edits made in Pretty or Raw. Intercept queues refresh automatically; WebSocket frames, batch replay, and missing body diagnostics are improved. Chrome passive listening remains limited to bodies the browser exposes; Firefox no longer shows its ineffective counterpart.
 - **Analysis and UI:** Improves AI analysis and dark-link feedback, unclipped PRO badges, and text contrast in macOS dark mode.
 - **MCP and packages:** Local MCP Server **1.0.13** improves setup and startup diagnostics. Official Chrome/Firefox ZIPs contain obfuscated extension scripts; the standalone `hawkeye-mcp-server.mjs` stays directly runnable for troubleshooting. Replace the extension and MJS, then restart the MCP host when upgrading.
@@ -254,8 +254,8 @@ Download exactly one official package for your browser from [GitHub Releases](ht
 Checksums (SHA-256):
 
 ```text
-bbece11c0de79575fcd2ae51e7581e812a0e61b579bfe040c7310da0ef3c8176  Hx0-HawkEye-Chrome-V1.0.6-Official.Release.zip
-459f23b02f63629afc4cc03895a62452e329e90bd56e7cad5218382cd0b5569e  Hx0-HawkEye-Firefox-V1.0.6-Official.Release.zip
+dbb303e443d957f7468c5e3d4cd8c14cc3d83354acd789ada4cc9641a101f7a7  Hx0-HawkEye-Chrome-V1.0.6-Official.Release.zip
+e8f8c6c92e4ef93b7d6d460b709f819b09ce34258a94ecf275c77197a038a1c3  Hx0-HawkEye-Firefox-V1.0.6-Official.Release.zip
 ```
 
 This release intentionally ships **no CRX or XPI**. Chrome restricts or disables non-store CRX installs, while release Firefox requires signed XPI packages. ZIP-only distribution avoids presenting fragile sideload paths as permanent installs and keeps the packaged runtime contents inspectable. The archives contain no unobfuscated extension development source, build scripts, source maps, secrets, or debug files; the standalone MCP Server MJS remains readable for direct use and troubleshooting.
@@ -550,5 +550,5 @@ Smart Proxy Router, Full Deep Search, and Sensitive Information Matching (built-
 
 - Capture history distinguishes current domain, current tab, and all records. Cross-subdomain requests remain visible under the originating tab. Intercept queues refresh automatically, and missing original request or response bodies show diagnostics.
 - Replay opens in Pretty by default; edits in Pretty or Raw are sent. WebSocket frames, batch replay, AI analysis, and dark-link results have clearer feedback.
-- Settings delete confirmations use in-extension dialogs. Firefox shortcut buttons match Chrome; English persona content updates when switching language, and dark-link rule names wrap. Pending Agent approvals can be reopened from the waiting indicator, while backdrop and Escape no longer dismiss the approval dialog.
+- Settings delete confirmations use in-extension dialogs. Firefox shortcut buttons match Chrome; English persona content updates when switching language, and dark-link settings remain scrollable in short popups and rule names wrap. Pending Agent approvals can be reopened from the waiting indicator, while backdrop and Escape no longer dismiss the approval dialog.
 - Local MCP Server 1.0.13 improves setup and connection diagnostics. Extension scripts in the official Chrome and Firefox ZIPs are obfuscated.
