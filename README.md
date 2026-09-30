@@ -54,7 +54,8 @@
 **基础抓包无需配置系统代理。** Hx0 鹰眼是一款面向 Chrome、Firefox 和主流 Chromium 浏览器的轻量级安全工作台。它在用户真实标签页与登录态中统一提供**抓包与拦截改包（含 WebSocket）、流量重放、微型 Fuzz、敏感信息 / 暗链检测、AI 安全审计、HawkEye MCP 与浏览器级 Agent（PRO）**，让人工分析、外部 Agent Host 和扩展内自动化共享同一套浏览器证据与安全工具。
 
 <!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/12839102/1774273422290-60039442-71ed-433c-847f-0f7d0bd25a30.png)
+<img width="1254" height="1254" alt="hb" src="https://github.com/user-attachments/assets/d9dac7bf-f524-4888-af6e-9c5615326051" />
+
 
 #### ⚡ 核心优势：为什么不用传统代理？
 + **基础抓包门槛低**：不必先打开 Burp、修改系统代理或配置 Java；可选的 MCP 接入需另行安装 Node.js。
